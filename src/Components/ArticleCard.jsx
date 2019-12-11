@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { getArticlesById } from "../api";
 import ArticleComments from "./ArticleComments";
 import LoadingImage from "./LoadingImage";
-import CommentAdder from "./CommentAdder";
+
 
 class ArticleCard extends Component {
   state = {
@@ -17,11 +17,11 @@ class ArticleCard extends Component {
     );
   }
 
-  postNewComment = requestBody => {};
+  
 
   render() {
     const { article, isLoading } = this.state;
-    const { user } = this.props.user;
+    const { user } = this.props;
     if (isLoading) return <LoadingImage />;
     return (
       <div>
@@ -36,7 +36,7 @@ class ArticleCard extends Component {
           Votes: {article.votes} <br></br> No. of comments:{" "}
           {article.comment_count}
         </p>
-        <CommentAdder />
+        
         <ArticleComments article_id={this.props.article_id} user={user} />
       </div>
     );

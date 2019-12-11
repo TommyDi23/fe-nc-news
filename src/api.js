@@ -26,10 +26,14 @@ export const getCommentsByArticleId = article_id => {
     });
 };
 
-export const postNewCommentByArticleId = (article_id, requestBody) => {
+export const addCommentToArticle = (article_id, requestBody) => {
   return axios
-    .post(`${baseURL}/articles/${article_id}`, requestBody)
+    .post(`${baseURL}/articles/${article_id}/comments`, requestBody)
     .then(({ data }) => {
       return data.comment;
     });
+};
+
+export const deleteCommentByCommentId = comment_id => {
+  return axios.delete(`${baseURL}/comments/${comment_id}`)
 };
