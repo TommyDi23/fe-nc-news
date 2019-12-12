@@ -40,7 +40,15 @@ export const deleteCommentByCommentId = comment_id => {
 
 export const updateCommentVote = (comment_id, inc_votes) => {
   return axios
-    .patch(`${baseURL}/comments/${comment_id}`, { votes: inc_votes })
+    .patch(`${baseURL}/comments/${comment_id}`, { inc_votes: inc_votes })
+    .then(({ data }) => {
+      return data.comment;
+    });
+};
+
+export const updateSelectedArticle = (inc_votes, article_id) => {
+  return axios
+    .patch(`${baseURL}/articles/${article_id}`, { inc_votes: inc_votes })
     .then(({ data }) => {
       return data.comment;
     });

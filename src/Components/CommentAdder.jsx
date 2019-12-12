@@ -19,7 +19,7 @@ class CommentAdder extends Component {
       .then(newlyPostedComment => {
         postNewComment(newlyPostedComment);
       })
-      .then(this.setState({ body: "" }));
+      .then(this.setState({ body: "" }))
   };
 
   render() {
@@ -27,6 +27,7 @@ class CommentAdder extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <textarea
+          required
           onChange={this.handleChange}
           value={body}
           type="text"

@@ -1,9 +1,10 @@
 import React from "react";
+import "../stylingCSS/Header.css";
 
 const Header = () => {
   return (
     <div>
-      <header>NC-News</header>
+      <header className="header">NC-News</header>
     </div>
   );
 };

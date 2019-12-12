@@ -1,11 +1,13 @@
-// import React from 'react';
+import React from "react";
 
-// const ErrorDisplay = () => {
-//   return (
-//     <div>
-      
-//     </div>
-//   );
-// };
+const ErrorDisplay = ({ err }) => {
+  return (
+    <div>
+      <p>
+        Error: this is an error {err.status} {err.msg}
+      </p>
+    </div>
+  );
+};
 
-// export default ErrorDisplay;
+export default ErrorDisplay;

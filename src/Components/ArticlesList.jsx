@@ -3,12 +3,14 @@ import { getArticles } from "../api";
 import { Link } from "@reach/router";
 import LoadingImage from "./LoadingImage";
 import ArticleSorter from "./ArticleSorter";
+import ErrorDisplay from "./ErrorDisplay";
 
 class ArticlesList extends Component {
   state = {
     sort_by: null,
     articles: [],
-    isLoading: true
+    isLoading: true,
+    err: null
   };
 
   componentDidMount() {
@@ -21,24 +23,30 @@ class ArticlesList extends Component {
     }
   }
 
-  fetchArticles = (sort_by) => {
+  fetchArticles = sort_by => {
     const { topic } = this.props;
-    
-    getArticles(topic, sort_by).then(data =>
-      this.setState({ articles: data, isLoading: false })
-    );
-  };
-
-  articlesSortBy = e => {
-    const {value} = e.target
-    this.fetchArticles(value)
    
-  }
+
+    getArticles(topic, sort_by)
+      .then(data => this.setState({ articles: data, isLoading: false }))
+      .catch(({ response }) =>
+        this.setState({
+          err: { status: response.status, msg: response.data.msg },
+          isLoading: false
+        })
+      );
+  };
   
 
+  articlesSortBy = e => {
+    const { value } = e.target;
+    this.fetchArticles(value);
+  };
+
   render() {
-    const { articles, isLoading } = this.state;
+    const { articles, isLoading, err } = this.state;
     if (isLoading) return <LoadingImage />;
+    if (err) return <ErrorDisplay err={err} />;
     return (
       <div>
         <ArticleSorter articlesSortBy={this.articlesSortBy} />
