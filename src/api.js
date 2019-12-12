@@ -35,5 +35,13 @@ export const addCommentToArticle = (article_id, requestBody) => {
 };
 
 export const deleteCommentByCommentId = comment_id => {
-  return axios.delete(`${baseURL}/comments/${comment_id}`)
+  return axios.delete(`${baseURL}/comments/${comment_id}`);
+};
+
+export const updateCommentVote = (comment_id, inc_votes) => {
+  return axios
+    .patch(`${baseURL}/comments/${comment_id}`, { votes: inc_votes })
+    .then(({ data }) => {
+      return data.comment;
+    });
 };

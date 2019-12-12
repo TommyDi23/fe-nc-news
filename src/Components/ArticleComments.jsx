@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { getCommentsByArticleId, deleteCommentByCommentId } from "../api";
 import LoadingImage from "./LoadingImage";
 import CommentAdder from "./CommentAdder";
+import CommentVoter from "./CommentVoter";
 
 class ArticleComments extends Component {
   state = {
@@ -19,9 +20,6 @@ class ArticleComments extends Component {
     );
   };
   componentDidUpdate(prevProps, prevState) {
-  
-    console.log(prevState, "p");
-    console.log(this.state, "this");
     if (prevState.comments.comment_id !== this.state.comments.comment_id) {
       this.fetchArticleComments();
     }
@@ -34,9 +32,10 @@ class ArticleComments extends Component {
   };
 
   handleDelete = comment_id => {
-    
     deleteCommentByCommentId(comment_id);
-    const filteredComments = this.state.comments.filter(com => com.comment_id !== comment_id);
+    const filteredComments = this.state.comments.filter(
+      com => com.comment_id !== comment_id
+    );
     this.setState({ comments: filteredComments, isLoading: false });
   };
 
@@ -64,6 +63,7 @@ class ArticleComments extends Component {
                 <button onClick={() => this.handleDelete(comment.comment_id)}>
                   delete
                 </button>
+                <CommentVoter comment_id={comment.comment_id} />
               </li>
             );
           })}
