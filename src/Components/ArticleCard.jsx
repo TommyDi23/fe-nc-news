@@ -34,9 +34,11 @@ class ArticleCard extends Component {
     return (
       <div className="divAc">
         <ul>
-          <li className='i'>author: {article.author} </li>
-          <li className='i'> created: {article.created_at}</li>
-          <li className='i'>topic: {article.topic}</li>
+          <li className="i">
+            <p>author: {article.author} </p>
+            <p>created: {article.created_at}</p>
+            <p>topic: {article.topic}</p>
+          </li>
         </ul>
 
         <h3 className="h3">{article.title}</h3>

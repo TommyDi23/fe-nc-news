@@ -59,10 +59,10 @@ class ArticlesList extends Component {
                   <h2>{article.title}</h2>
                 </Link>
                 <p className='p'>author: {article.author}</p>
-                <li>comments count: {article.comment_count}</li>
-                <li>created: {article.created_at}</li>
-                <li>topic: {article.topic}</li>
-                <li>votes: {article.votes}</li>
+                <p>comments count: {article.comment_count}</p>
+                <p>created: {article.created_at}</p>
+                <p>topic: {article.topic}</p>
+                <p>votes: {article.votes}</p>
               </li>
             );
           })}

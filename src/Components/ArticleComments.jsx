@@ -51,6 +51,8 @@ class ArticleComments extends Component {
   render() {
     const { comments, isLoading, err } = this.state;
     const { article_id, user } = this.props;
+  
+   
 
     if (isLoading) return <LoadingImage />;
     if (err) return <ErrorDisplay err={err} />;
@@ -69,9 +71,11 @@ class ArticleComments extends Component {
                 <p>{comment.body}</p>
 
                 <p>submitted: {comment.created_at}</p>
+               { (comment.author === user &&
                 <button onClick={() => this.handleDelete(comment.comment_id)}>
                   delete
-                </button>
+               </button> )}
+          
                 <VoteCaster
                   votes={comment.votes}
                   comment_id={comment.comment_id}

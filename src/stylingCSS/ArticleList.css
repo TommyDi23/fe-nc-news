@@ -10,7 +10,7 @@
   font-stretch: ultra-expanded;
   color: cornsilk;
   border-style: groove;
-  
+  border-block-end: 100
 }
 
 .p{
