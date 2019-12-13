@@ -1,0 +1,18 @@
+.h3 {
+  font-style: italic;
+}
+
+.h4 {
+  color: rgb(21, 21, 59);
+  background-color: rgb(233, 218, 218);
+  font-style: Verdana, sans-serif;
+}
+
+.i {
+  text-align: center;
+  font-style: oblique;
+  list-style: none;
+  color: blueviolet;
+  flex-direction: column;
+  justify-content: center;
+}

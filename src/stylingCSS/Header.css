@@ -1,4 +1,10 @@
 .header {
-  font-size: 100px;
+  font-size: 10px;
   font-style: italic;
+  overflow: hidden;
+  background-color: #f1f1f1;
+  padding: 20px 10px;
+  font-size: 10vw;
+  color: rgb(41, 17, 17);
+  
 }
