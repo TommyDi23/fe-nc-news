@@ -4,7 +4,8 @@ import ArticleComments from "./ArticleComments";
 import LoadingImage from "./LoadingImage";
 import VoteCaster from "./VoteCaster";
 import ErrorDisplay from "./ErrorDisplay";
-import "../stylingCSS/ArticleCard.css";
+import styles from "../Styling.css/ArticleCard.module.css";
+
 
 class ArticleCard extends Component {
   state = {
@@ -34,15 +35,15 @@ class ArticleCard extends Component {
     return (
       <div className="divAc">
         <ul>
-          <li className="i">
+          <li className={styles.li}>
             <p>author: {article.author} </p>
             <p>created: {article.created_at}</p>
             <p>topic: {article.topic}</p>
           </li>
         </ul>
 
-        <h3 className="h3">{article.title}</h3>
-        <h4 className="h4">{article.body}</h4>
+        <h3 className={styles.h3}>{article.title}</h3>
+        <h4 className={styles.h4}>{article.body}</h4>
         <VoteCaster article_id={article.article_id} votes={article.votes} />
         <p>No. of comments: {article.comment_count}</p>
 

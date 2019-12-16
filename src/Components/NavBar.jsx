@@ -1,22 +1,22 @@
 import React from "react";
 import { Link } from "@reach/router";
-import "../stylingCSS/NavBar.css";
+import styles from "../Styling.css/NavBar.module.css";
 
 const NavBar = props => {
   return (
-    <nav className="nav">
-      <ul className="ul">
+    <nav className={styles.nav}>
+      <ul className={styles.ul}>
         <Link to={`/`}>
-          <li className="li">Home</li>
+          <li className={styles.li}>Home</li>
         </Link>
         <Link to={`/topics/football/articles`}>
-          <li className="li">Football</li>
+          <li className={styles.li}>Football</li>
         </Link>
         <Link to={`/topics/coding/articles`}>
-          <li className="li">Coding</li>
+          <li className={styles.li}>Coding</li>
         </Link>
         <Link to={`/topics/cooking/articles`}>
-          <li className="li">Cooking</li>
+          <li className={styles.li}>Cooking</li>
         </Link>
       </ul>
     </nav>

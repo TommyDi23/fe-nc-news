@@ -1,10 +1,11 @@
 import React from "react";
-import "../stylingCSS/Header.css";
+import styles from "../Styling.css/Header.module.css";
 
-const Header = () => {
+const Header = props => {
   return (
     <div>
-      <header className="header">NC-News</header>
+      <header className={styles.header}>NC-News</header>
+      <p className={styles.p}>welcome {props.user}</p>
     </div>
   );
 };

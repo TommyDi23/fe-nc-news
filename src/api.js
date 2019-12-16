@@ -2,6 +2,13 @@ import axios from "axios";
 
 const baseURL = "https://heroku-nc-news.herokuapp.com/api";
 
+export const getTopics = () => {
+  return axios.get(`${baseURL}/topics`).then(({ data }) => {
+    console.log(data)
+    return data.topics;
+  });
+};
+
 export const getArticles = (topic, sort_by) => {
   return axios
     .get(`${baseURL}/articles`, {
@@ -53,5 +60,3 @@ export const updateSelectedArticle = (inc_votes, article_id) => {
       return data.comment;
     });
 };
-
-

@@ -4,7 +4,8 @@ import { Link } from "@reach/router";
 import LoadingImage from "./LoadingImage";
 import ArticleSorter from "./ArticleSorter";
 import ErrorDisplay from "./ErrorDisplay";
-import "../stylingCSS/ArticleList.css";
+import styles from "../Styling.css/ArticleList.module.css";
+
 
 class ArticlesList extends Component {
   state = {
@@ -49,16 +50,19 @@ class ArticlesList extends Component {
     if (isLoading) return <LoadingImage />;
     if (err) return <ErrorDisplay err={err} />;
     return (
-      <div className='div'>
-        <ArticleSorter className='as' articlesSortBy={this.articlesSortBy} />
-        <ul>
+      <>
+      <ArticleSorter articlesSortBy={this.articlesSortBy} />
+      <br></br>
+      <div className={styles.div}>
+       
+        <ul className={styles.ul}>
           {articles.map(article => {
             return (
-              <li className='li' key={article.article_id}>
+              <li className={styles.li} key={article.article_id}>
                 <Link to={`/articles/${article.article_id}`}>
-                  <h2>{article.title}</h2>
+                  <h2 className={styles.h2}>{article.title}</h2>
                 </Link>
-                <p className='p'>author: {article.author}</p>
+                <p className={styles.p}>author: {article.author}</p>
                 <p>comments count: {article.comment_count}</p>
                 <p>created: {article.created_at}</p>
                 <p>topic: {article.topic}</p>
@@ -68,6 +72,7 @@ class ArticlesList extends Component {
           })}
         </ul>
       </div>
+      </>
     );
   }
 }

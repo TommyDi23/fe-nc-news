@@ -1,0 +1,20 @@
+.text{
+border: 2px solid rgb(68, 0, 255);
+  border-radius: 4px;
+  font-size: 30px;
+   background-color: rgba(63, 42, 165, 0.228);
+}
+
+.btn{
+  background-color: rgba(63, 42, 165, 0.228);
+  font-size: 24px;
+  padding: 10px 24px;
+  border: 2px solid rgb(82, 2, 2);
+  font-family: 'Josefin Slab', serif;
+  font-weight: bolder;
+}
+
+.btn:hover {
+  background-color: #4CAF50;
+  color: white;
+}

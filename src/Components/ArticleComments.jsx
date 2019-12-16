@@ -4,6 +4,7 @@ import LoadingImage from "./LoadingImage";
 import CommentAdder from "./CommentAdder";
 import VoteCaster from "./VoteCaster";
 import ErrorDisplay from "./ErrorDisplay";
+import styles from "../Styling.css/ArticleComments.module.css";
 
 class ArticleComments extends Component {
   state = {
@@ -34,14 +35,12 @@ class ArticleComments extends Component {
 
   postNewComment = newlyPostedComment => {
     this.setState(state => {
-      return { comments: [newlyPostedComment, ...state.comments] };
+      return { comments: [newlyPostedComment, ...state.comments], isLoading: false };
     });
   };
 
   handleDelete = comment_id => {
-    const { user } = this.props;
-    const { author } = this.state.comments;
-    if (user === author) deleteCommentByCommentId(comment_id);
+    deleteCommentByCommentId(comment_id);
     const filteredComments = this.state.comments.filter(
       com => com.comment_id !== comment_id
     );
@@ -51,8 +50,6 @@ class ArticleComments extends Component {
   render() {
     const { comments, isLoading, err } = this.state;
     const { article_id, user } = this.props;
-  
-   
 
     if (isLoading) return <LoadingImage />;
     if (err) return <ErrorDisplay err={err} />;
@@ -63,19 +60,21 @@ class ArticleComments extends Component {
           postNewComment={this.postNewComment}
           username={user}
         />
+        {/* <p>hi</p> */}
         <ul>
           {comments.map(comment => {
             return (
-              <li key={comment.comment_id}>
-                <h6>{comment.author}</h6>
-                <p>{comment.body}</p>
+              <li className={styles.li} key={comment.comment_id}>
+                <h6 className={styles.li}>{comment.author}</h6>
+                <p className={styles.p}>{comment.body}</p>
 
                 <p>submitted: {comment.created_at}</p>
-               { (comment.author === user &&
-                <button onClick={() => this.handleDelete(comment.comment_id)}>
-                  delete
-               </button> )}
-          
+                {comment.author === user && (
+                  <button onClick={() => this.handleDelete(comment.comment_id)}>
+                    delete
+                  </button>
+                )}
+
                 <VoteCaster
                   votes={comment.votes}
                   comment_id={comment.comment_id}

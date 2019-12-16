@@ -14,7 +14,6 @@ const ArticleSorter = props => {
           votes
         </option>
       </select>
-      <p>sort by</p>
     </div>
   );
 };

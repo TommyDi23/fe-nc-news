@@ -1,16 +1,21 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## README - NC News
 
-In the project directory, you can run:
+NC news is a modern news website which enables visitors to read, comment and vote on various topics.
+Built with Reactjs for the front end and nodejs on the backend.
 
-### `npm start`
+### `Prerequisites and Dependencies`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+"@reach/router": "^1.2.1",
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+"@testing-library/react": "^9.3.2",
+"@testing-library/user-event": "^7.1.2",
+"axios": "^0.19.0",
+"cors": "^2.8.5",
+"react": "^16.12.0",
+"react-dom": "^16.12.0",
+"react-scripts": "3.3.0"
 
 ### `npm test`
 

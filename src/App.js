@@ -16,15 +16,16 @@ class App extends React.Component {
     const { user } = this.state;
     return (
       <div className="App">
-        <Header />
+        <Header user={user} />
+
         <NavBar />
         <Router>
-          <ArticlesList path="/" user={user} />
           <ArticlesList path="/topics/:topic/articles" user={user} />
+          <ArticlesList path="/" user={user} />
+
           <ArticleCard path="articles/:article_id" user={user} />
-          <ErrorDisplay default err={{status: 404, msg: 'route not found'}}/>
+          <ErrorDisplay default err={{ status: 404, msg: "route not found" }} />
         </Router>
-        
       </div>
     );
   }

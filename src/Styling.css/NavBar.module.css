@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Slab&display=swap');
+
+.nav {
+  font-size: 40px;
+}
+
+.ul .li {
+  margin: 100;
+  display: flex;
+  flex-direction: row;
+  padding: 30px 50px;
+  border: 1px solid black;
+  font-family: 'Josefin Slab', serif;
+  background-color:rgba(22, 5, 176, 0.331);
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+   
+    .nav.ul.li {
+        font-size: 5vw;
+        float:left;
+    }
+    
+}

@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css?family=Josefin+Slab&display=swap");
+
+.li {
+  list-style-type: none;
+  border: 1px solid black;
+  background-color: rgba(22, 5, 176, 0.331);
+}
+
+.h2 {
+  font-family: "Josefin Slab", serif;
+  font-weight: bolder;
+  font-size: 30px;
+  
+}
+
+.p{
+  font-size: 25px;
+  font-family: "Josefin Slab", serif;
+  color: rgb(226, 43, 52)
+}
+
+p{
+  font-size: 15px;
+  font-family: "Josefin Slab", serif;
+  color: rgb(31, 33, 2);
+  line-height: 0em;
+  word-spacing: 20px;
+  
+}
+
+
+
+@media (max-width: 600px) {
+    .div h2 {
+        font-size: 8vw
+    }
+    .div p {
+        font-size: 5vw
+    }
+    .div li {
+        font-size: 4vw
+    }
+}
